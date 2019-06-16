@@ -76,7 +76,11 @@
         <!--PageVC-->
         <scene sceneID="6fq-8D-rG5">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5Le-Ep-l0F" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5Le-Ep-l0F" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="c73-71-wua" kind="presentation" identifier="ToListVC" id="wF7-0O-l7P"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Niq-kf-OF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="-558"/>
@@ -100,12 +104,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2Lr-Ei-hx9" kind="unwind" identifier="ToPageVC" unwindAction="unwindFromListVCWithSender:" id="GiL-Jj-0R6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-pZ-qzx">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-pZ-qzx">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="Edit" id="syI-NO-Tjb"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7ui-J1-bdY"/>
@@ -116,15 +122,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vfH-tR-Ihv" firstAttribute="bottom" secondItem="hiD-Q6-VqR" secondAttribute="bottom" constant="44" id="FaK-gQ-pbu"/>
+                            <constraint firstItem="4Fu-pZ-qzx" firstAttribute="trailing" secondItem="vfH-tR-Ihv" secondAttribute="trailing" id="Gca-du-IHe"/>
+                            <constraint firstItem="4Fu-pZ-qzx" firstAttribute="leading" secondItem="vfH-tR-Ihv" secondAttribute="leading" id="KKH-D9-3sI"/>
                             <constraint firstItem="hiD-Q6-VqR" firstAttribute="leading" secondItem="vfH-tR-Ihv" secondAttribute="leading" id="Ydl-jO-8B2"/>
                             <constraint firstItem="vfH-tR-Ihv" firstAttribute="bottom" secondItem="hiD-Q6-VqR" secondAttribute="bottom" constant="44" id="YqG-aF-9fM"/>
                             <constraint firstItem="hiD-Q6-VqR" firstAttribute="top" secondItem="vfH-tR-Ihv" secondAttribute="top" id="i85-5I-N6a"/>
                             <constraint firstItem="hiD-Q6-VqR" firstAttribute="trailing" secondItem="vfH-tR-Ihv" secondAttribute="trailing" id="jtd-Rc-R3s"/>
+                            <constraint firstItem="4Fu-pZ-qzx" firstAttribute="bottom" secondItem="vfH-tR-Ihv" secondAttribute="bottom" id="p2n-sd-wiR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vfH-tR-Ihv"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hiD-Q6-VqR" id="ROV-a2-2Ee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuM-C5-rmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2Lr-Ei-hx9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="880" y="-558"/>
         </scene>
